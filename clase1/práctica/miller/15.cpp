@@ -4,7 +4,7 @@ using namespace std;
 void menu();
 void par(int x);
 int doble(int x);
-int quinta(int x);
+bool es_primo(int x);
 
 int main(int argc, char *argv[]) {
 	char word;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 				par(num);
 			break;
 			case 'C':
-				cout << quinta(num) << endl;
+				cout << es_primo(num) << endl;
 			break;
 			case 'D':
 				band = false;
@@ -48,15 +48,20 @@ void par(int x){
 		cout << "Es impar\n";
 }
 
-int quinta(int x){
-	return(x*x*x*x*x);
+bool es_primo(int n){
+    bool primo = true;
+    for(int i = 2; i < n; i++) {
+        if (n%i == 0)
+            primo = false;
+    }
+    return primo;
 }
 	
 void menu(){
 	cout << "CALCULOS\n";
 	cout << setw(3) << "A- Calcular el doble del dato.\n";
 	cout << setw(3) << "B- Determinar si es par.\n";
-	cout << setw(3) << "C- Determinar su 5ta potencia.\n";
+	cout << setw(3) << "C- Determinar si es primo.\n";
 	cout << setw(3) << "D- Salir.\n";
 	cout << "Elija una opcion (A..D):\n";
 }
