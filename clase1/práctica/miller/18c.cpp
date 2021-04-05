@@ -76,6 +76,10 @@ bool validar(int d, int m, int a){
     return ok;
 }
 
+int diferencia(){
+
+}
+
 int main(){
     string dia, mes, anio;
     cout << "Inserte fecha de la forma 'dd-mm-aaaa'\n";
@@ -85,7 +89,17 @@ int main(){
     int d = stoi(dia);
     int m = stoi(mes);
     int a = stoi(anio);
-    if(validar(d, m, a))
-
+    if(!validar(d, m, a))
+        cout << "Fecha erronea\n";
+    else
+    cout << "Inserte segunda fecha de la forma 'dd-mm-aaaa'\n";
+    getline(cin, dia, '-');
+    getline(cin, mes, '-');
+    getline(cin, anio);
+    int d2 = stoi(dia);
+    int m2 = stoi(mes);
+    int a2 = stoi(anio);
+    if(!validar(d2, m2, a2))
+        cout << "Fecha erronea\n";
     return 0;
 }

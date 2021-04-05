@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int fibo(int i);
+int fibo(int n);
 
 int main(){
     int iteraciones, out;
@@ -11,10 +11,9 @@ int main(){
     return 0;
 }
 
-int fibo(int i){
-    int f0 = 0;
-    int f1 = 1;
-    if(i != 0)
-        return (fibo(a, n-1));
-    return 1;
+int fibo(int n){
+    if(n == 0 or n == 1)
+       return n;
+    else
+       return fibo(n - 2) + fibo(n - 1);
 }
