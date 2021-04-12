@@ -76,8 +76,29 @@ bool validar(int d, int m, int a){
     return ok;
 }
 
-int diferencia(){
-
+int diferencia(int d, int d2, int m, int m2, int a, int a2){
+    int meses[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if(es_bisiesto(a)){
+        d += a*366;
+        d += meses[m];
+    }
+    else{
+        d += a*365;
+        d += (meses[m]);
+        if(m == 2)
+            d -= 1;
+    }
+    if(es_bisiesto(a2)){
+        d2 += a*366;
+        d2 += meses[m2];
+    }
+    else{
+        d2 += a*365;
+        d2 += (meses[m2]);
+        if(m == 2)
+            d2 -= 1;
+    }
+    return (d2 - d);
 }
 
 int main(){
@@ -89,17 +110,25 @@ int main(){
     int d = stoi(dia);
     int m = stoi(mes);
     int a = stoi(anio);
-    if(!validar(d, m, a))
-        cout << "Fecha erronea\n";
-    else
-    cout << "Inserte segunda fecha de la forma 'dd-mm-aaaa'\n";
-    getline(cin, dia, '-');
-    getline(cin, mes, '-');
-    getline(cin, anio);
-    int d2 = stoi(dia);
-    int m2 = stoi(mes);
-    int a2 = stoi(anio);
-    if(!validar(d2, m2, a2))
-        cout << "Fecha erronea\n";
+    if(!validar(d, m, a)){
+        cout << "Fecha erronea\nDiferencia en dias: 0\n";
+        exit(1);
+    }
+    else{
+        cout << "Inserte segunda fecha de la forma 'dd-mm-aaaa'\n";
+        getline(cin, dia, '-');
+        getline(cin, mes, '-');
+        getline(cin, anio);
+        int d2 = stoi(dia);
+        int m2 = stoi(mes);
+        int a2 = stoi(anio);
+        if(!validar(d2, m2, a2)){
+            cout << "Fecha erronea\nDiferencia en dias: 0\n";
+            exit(1);
+        }else{
+            cin.get();
+            cout << diferencia(d, d2, m, m2, a, a2);
+        }
+    }
     return 0;
 }
