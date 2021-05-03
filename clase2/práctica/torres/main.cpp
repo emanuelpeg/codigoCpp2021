@@ -4,22 +4,26 @@
 using namespace std;
 
 typedef int Disco;
+int cont = 0;
 
 void MoverDiscos(unsigned short DiscoN, stack<Disco>& TorreOrigen, stack<Disco>& TorreAuxiliar, stack<Disco>& TorreDestino);
+
 int main()
 {
     stack<Disco> origen, aux, destino;
-    origen.push(5);
-    origen.push(4);
-    origen.push(3);
-    origen.push(2);
-    origen.push(1);
+    origen.push(60);
+    origen.push(50);
+    origen.push(40);
+    origen.push(30);
+    origen.push(20);
+    origen.push(10);
     MoverDiscos(5, origen, aux, destino);
 
     while (!destino.empty()) {
         cout << destino.top() <<endl;
         destino.pop();
     }
+    cout << cont;
     return 0;
 }
 
@@ -32,6 +36,7 @@ void MoverDiscos(unsigned short DiscoN, stack<Disco>& TorreOrigen, stack<Disco>&
                 TorreDestino.push(TorreOrigen.top());
                 TorreOrigen.pop();
                 cout << "Mueve" << endl;
+                cont++;
             }
         }
     else
@@ -42,6 +47,7 @@ void MoverDiscos(unsigned short DiscoN, stack<Disco>& TorreOrigen, stack<Disco>&
             TorreDestino.push(TorreOrigen.top());
             TorreOrigen.pop();
             cout << "Mueve" << endl;
+            cont++;
         }
         MoverDiscos(DiscoN-1, TorreAuxiliar, TorreOrigen, TorreDestino);
         }
