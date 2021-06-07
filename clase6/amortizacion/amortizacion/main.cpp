@@ -12,7 +12,7 @@ int main()
 {
     GestorContable gestorContable = GestorContable();
 
-    Bien * unTerreno = new Terreno();
+    Terreno * unTerreno = new Terreno();
     unTerreno->setValor(120000.0);
     gestorContable.imprimir(unTerreno);
 
