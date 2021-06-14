@@ -1,14 +1,17 @@
 #include <iostream>
 #include "lista.h"
 #include "vector.h"
+#include "conjunto.h"
 
 using namespace std;
 
 int main()
 {
-    Coleccion * c = new Vector();
+    Coleccion * c = new Conjunto();
 
     c->agregar(4);
+    c->agregar(55);
+    c->agregar(55);
     c->agregar(55);
     c->agregar(88);
 

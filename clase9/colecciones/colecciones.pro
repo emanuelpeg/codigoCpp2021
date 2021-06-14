@@ -5,11 +5,13 @@ CONFIG -= qt
 
 SOURCES += \
         coleccion.cpp \
+        conjunto.cpp \
         lista.cpp \
         main.cpp \
         vector.cpp
 
 HEADERS += \
     coleccion.h \
+    conjunto.h \
     lista.h \
     vector.h
