@@ -25,11 +25,11 @@ int main()
         cin >> salida;
         cout << endl;
 
-        if (salida == 'Y') {
+        if (salida == 'Y' || salida == 'y' ) {
             juego.generarSecuencia();
         }
 
-    } while (salida == 'Y');
+    } while (salida == 'Y' || salida == 'y');
 
 
     return 0;
